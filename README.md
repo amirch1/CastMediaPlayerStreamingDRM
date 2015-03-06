@@ -51,6 +51,8 @@ It uses a Chrome sender but can work with Android or iOS senders as well.  It al
   * Set license customData
   * Inspect code snippets live
 
+Tip: If you're having problems playing streams on a Cast device, it may be an issue with CORS. Use a publicly available CORS proxy server to test your streams. (Please note that such third-party software as referenced here is not controlled by Google. Google cannot guarantee that third-party software will operate as intended. Please proceed with caution.)
+
 ##Documentation
 * Cast Chrome Sender APIs: http://developers.google.com/cast/docs/chrome_sender
 * Cast Receiver APIs: https://developers.google.com/cast/docs/reference/receiver/
