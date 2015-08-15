@@ -687,7 +687,7 @@ onload = function() {
       if (protocol === null) {
         // Call on original handler
         mediaManager['onLoadOrig'](event); // Call on the original callback
-      }else{
+      } else {
         console.log('### Media Protocol Identified as ' + ext);
         setDebugMessage('mediaProtocol', ext);
 
