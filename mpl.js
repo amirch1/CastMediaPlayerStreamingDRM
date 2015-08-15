@@ -683,18 +683,23 @@ onload = function() {
         protocol = cast.player.api.CreateSmoothStreamingProtocol(mediaHost);
         ext = 'Smooth Streaming';
       }
-      console.log('### Media Protocol Identified as ' + ext);
-      setDebugMessage('mediaProtocol', ext);
-
-      // Advanced Playback - HLS, MPEG DASH, SMOOTH STREAMING
-      // Player registers to listen to the media element events through the
-      // mediaHost property of the  mediaElement
-      mediaPlayer = new cast.player.api.Player(mediaHost);
-      if (liveStreaming) {
-        mediaPlayer.load(protocol, Infinity);
-      }
-      else {
-        mediaPlayer.load(protocol, initialTimeIndexSeconds);
+      
+      if (protocol === null) {
+        // Call on original handler
+        mediaManager['onLoadOrig'](event); // Call on the original callback
+      }else{
+        console.log('### Media Protocol Identified as ' + ext);
+        setDebugMessage('mediaProtocol', ext);
+        // Advanced Playback - HLS, MPEG DASH, SMOOTH STREAMING
+        // Player registers to listen to the media element events through the
+        // mediaHost property of the  mediaElement
+        mediaPlayer = new cast.player.api.Player(mediaHost);
+        if (liveStreaming) {
+          mediaPlayer.load(protocol, Infinity);
+        }
+        else {
+          mediaPlayer.load(protocol, initialTimeIndexSeconds);
+        }
       }
       setDebugMessage('mediaHostState', 'success');
     }
